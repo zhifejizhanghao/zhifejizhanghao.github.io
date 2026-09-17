@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<div class="article-layout">
+  <article class="article-page card">
+    <span class="pill">{{ page.category | default: '使用文章' }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="article-date">更新于 {{ page.date | date: '%Y-%m-%d' }}</p>
+    {% if page.tags %}<div class="article-tags">{% for t in page.tags %}<span class="tag-chip">{{ t }}</span>{% endfor %}</div>{% endif %}
+    <div class="article-content">{{ content }}</div>
+  </article>
+  <aside class="article-sidebar">
+    {% assign detail = site.pages | where: "path", "zhifeiji-buy.md" | first %}{% if detail.products %}
+    <div class="side-card">
+      <div class="side-head">
+        <span class="pill">商品信息</span>
+        <h2>纸飞机账号</h2>
+      </div>
+      <div class="side-products">
+        {% for p in detail.products limit: 3 %}<a class="side-product" href="{{ '/zhifeiji-buy/' | relative_url }}"><span class="sp-country">{{ p.country }}</span><b>{{ p.name }}</b><em>{{ p.price }}</em></a>{% endfor %}
+      </div>
+      <a class="side-more" href="{{ '/zhifeiji-buy/' | relative_url }}">查看全部商品 →</a>
+    </div>
+    {% endif %}
+    <div class="side-card">
+      <div class="side-head">
+        <span class="pill">商城直达</span>
+        <h2>去商城购买</h2>
+      </div>
+      <p style="font-size:12px;color:#687a8e;margin:6px 0 12px">Telegram成品号 · 批发 · 会员 · 售后</p>
+      <a class="side-more" href="https://shop.xinkonyun.cc/" target="_blank" rel="noreferrer">shop.xinkonyun.cc →</a>
+    </div>
+    {% if page.tags %}
+    <div class="side-card">
+      <div class="side-head">
+        <span class="pill">标签</span>
+        <h2>相关关键词</h2>
+      </div>
+      <div class="side-tags">{% for t in page.tags %}<span>{{ t }}</span>{% endfor %}</div>
+    </div>
+    {% endif %}
+  </aside>
+</div>

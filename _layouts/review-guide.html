@@ -1,0 +1,58 @@
+---
+layout: default
+---
+<section class="detail-hero card">
+  <span class="pill">{{ page.badge | default: '测评分享' }}</span>
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.intro }}</p>
+  <div class="tag-row"><span>✓ 模拟测评数据</span><span>→ 商城直达购买</span></div>
+</section>
+<section class="card rank-card">
+  <div class="section-heading">
+    <span class="pill">渠道榜单</span>
+    <h2>纸飞机账号渠道参考 TOP 10</h2>
+    <p>本站基于统一评价标准整理的模拟榜单，仅用于不同渠道之间的横向参考。</p>
+  </div>
+  <ol class="rank-list">
+    {% for r in page.rankings %}
+    <li class="rank-item">
+      <span class="rank-no">{{ forloop.index }}</span>
+      <div class="rank-info"><b>{{ r.name }}</b><span class="rank-tag">{{ r.tag }}</span></div>
+      <div class="rank-note">{{ r.note }}</div>
+      <div class="rank-stars">{{ r.stars }}</div>
+      <div class="rank-score">{{ r.score }}<small>稳定性 {{ r.stable }}</small></div>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="table-note">以上榜单为本站模拟整理的横向对比数据，不代表任何真实网站的实际情况，也不构成任何购买或使用建议；购买请认准商城官方渠道 shop.xinkonyun.cc。</p>
+</section>
+<section class="card section-block">
+  <div class="section-heading left"><span class="pill">选购指南</span><h2>纸飞机账号怎么选？</h2></div>
+  <div class="rich-text">{{ page.how_choose }}</div>
+</section>
+<section class="card section-block">
+  <div class="section-heading left"><span class="pill">安全分析</span><h2>纸飞机账号购买安全吗？</h2></div>
+  <div class="rich-text">{{ page.is_safe }}</div>
+</section>
+<section class="card section-block">
+  <div class="section-heading left"><span class="pill">概念对比</span><h2>Telegram成品号与自行注册有什么区别？</h2></div>
+  <div class="rich-text">{{ page.how_use }}</div>
+</section>
+<section class="card faq-card">
+  <div class="section-heading">
+    <span class="pill">常见问题</span>
+    <h2>常见疑问</h2>
+    <p>围绕购买渠道、交付与账号安全的常见问题。</p>
+  </div>
+  <div class="faq-list">
+    {% for f in page.faqs %}<details{% if forloop.first %} open{% endif %}><summary>{{ f.q }} <span>→</span></summary><p>{{ f.a }}</p></details>{% endfor %}
+  </div>
+</section>
+<section class="demo-card">
+  <div>
+    <span>商城直达</span>
+    <h2>认准商城官方渠道购买</h2>
+    <p>Telegram成品号 · 批发 · 会员 · 售后，统一走商城官方渠道。</p>
+  </div>
+  <div class="demo-icon"><b>shop.xinkonyun.cc</b></div>
+</section>

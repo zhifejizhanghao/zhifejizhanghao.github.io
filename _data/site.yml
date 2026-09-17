@@ -1,0 +1,22 @@
+services:
+  - { name: "Telegram成品号", version: "水养 / 独享 可选" }
+  - { name: "纸飞机会员", version: "Premium 开通 / 续费" }
+  - { name: "账号批发", version: "工作室与批量需求" }
+  - { name: "注册辅助", version: "成品号代注册交付" }
+  - { name: "售后协助", version: "问题账号处理指引" }
+routes:
+  - { title: "纸飞机账号购买", body: "购买流程、版本区别与验收清单说明。", url: "/zhifeiji-buy/", tone: "blue" }
+  - { title: "纸飞机账号批发", body: "批量拿货、价格层级与供货规则整理。", url: "/zhifeiji-pifa/", tone: "green" }
+  - { title: "纸飞机账号安全", body: "账号保护、风险提示与常见问题。", url: "/zhifeiji-anquan/", tone: "amber" }
+products:
+  - { country: "独享", name: "Telegram 成品号（养好）", price: "¥6.8 起", description: "注册即用的养好成品号 · 无水印可改密" }
+  - { country: "会员", name: "纸飞机 Premium 会员", price: "¥28.8 起", description: "Premium 开通 / 续费 / 升级" }
+  - { country: "批发", name: "Telegram 账号批发", price: "按量报价", description: "工作室 / 营销批量需求" }
+  - { country: "注册", name: "账号注册辅助", price: "按需报价", description: "代注册与交付说明" }
+faqs:
+  - { question: "纸飞机账号买来多久能用？", answer: "常规订单在付款后几分钟内交付账号信息；需要人工核对或高峰时段可能稍慢，以商城客服确认为准。" }
+  - { question: "购买的账号安全吗？", answer: "正规成品号交付后建议立即绑定本人手机号、设置双重验证并修改密码。请认准商城官方渠道购买，保留订单记录。" }
+  - { question: "账号可以自己改密和换绑吗？", answer: "可以。交付后即可登录修改密码、绑定本人手机号与双重验证；具体以账号当前状态和商城售后说明为准。" }
+  - { question: "账号批发有起订量吗？", answer: "批发起订量与价格层级以商城页面为准，量大可联系客服确认供货周期与交付方式。" }
+  - { question: "购买后遇到问题怎么办？", answer: "通过商城下单的订单由商城客服处理，本站只提供信息攻略，不直接处理订单与售后。" }
+  - { question: "本站直接出售账号吗？", answer: "本站是信息攻略站，不直接出售账号；购买与售后请前往商城 shop.xinkonyun.cc 完成。" }

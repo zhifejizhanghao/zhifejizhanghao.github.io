@@ -1,0 +1,23 @@
+title: 纸飞机账号站
+description: 纸飞机账号购买、Telegram账号批发、纸飞机会员开通与账号使用攻略的原创资讯站。
+url: "https://zhifejizhanghao.github.io"
+baseurl: ""
+lang: zh-CN
+markdown: kramdown
+permalink: /articles/:name/
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: "_articles"
+      type: articles
+    values:
+      layout: article
+exclude:
+  - README.md

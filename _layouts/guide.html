@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<section class="detail-hero card">
+  <span class="pill">{{ page.badge }}</span>
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.intro }}</p>
+  <div class="tag-row"><span>✓ 原创内容攻略</span><span>→ 商城直达购买</span></div>
+</section>
+{% if page.products %}
+<section class="card product-showcase">
+  <div class="section-heading left">
+    <span class="pill">服务展示</span>
+    <h2>纸飞机账号服务说明</h2>
+    <p>以下卡片用于展示服务名称、价格与适用说明；价格仅供参考，以商城实际为准，点击按钮前往商城。</p>
+  </div>
+  <div class="product-grid">
+    {% for item in page.products %}
+    <article class="product-card">
+      <div class="product-art"><span>{{ item.country }}</span><b>TG</b></div>
+      <div class="product-copy">
+        <div class="product-meta"><span>{{ item.country }} · 服务说明</span><em>商城直供</em></div>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="product-bottom"><strong>{{ item.price }}</strong><button type="button" data-buy data-product="{{ item.name | escape }}">商城购买 →</button></div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+<section class="card core-card">
+  <div class="section-heading">
+    <span class="eyebrow">✓ 先确认</span>
+    <h2>{{ page.keyword }} 需要先看哪些条件？</h2>
+    <p>下面几张说明卡整理最容易混淆的判断问题。</p>
+  </div>
+  <div class="detail-card-grid">
+    {% for item in page.cards %}
+    <article>
+      <div class="icon-box">{{ forloop.index | prepend: '0' }}</div>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.body }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="card steps-card">
+  <div><span class="eyebrow">✓ 流程说明</span><h2>几步完成，<br>按序核对即可。</h2></div>
+  <ol>{% for item in page.steps %}<li><span>{{ forloop.index }}</span><p>{{ item }}</p></li>{% endfor %}</ol>
+</section>
+<section class="safety-card">
+  <div class="safety-symbol">✓</div>
+  <div>
+    <h2>账号安全提示</h2>
+    <p>任何情况下都不要向陌生人提供账号密码、验证码或付款资料。购买与售后请认准商城官方渠道 shop.xinkonyun.cc，收货后建议立即改密并绑定本人手机号。</p>
+  </div>
+</section>
+<section class="card faq-card">
+  <div class="section-heading">
+    <span class="pill">常见问题</span>
+    <h2>使用帮助</h2>
+    <p>围绕购买、交付、账号与售后边界的说明。</p>
+  </div>
+  <div class="faq-list">
+    {% for item in page.faqs %}<details{% if forloop.first %} open{% endif %}><summary>{{ item.question }} <span>→</span></summary><p>{{ item.answer }}</p></details>{% endfor %}
+  </div>
+</section>
+<section class="related-panel">
+  <div><span class="pill">继续阅读</span><h2>相关说明页面</h2></div>
+  <div>{% for item in page.related %}<a href="{{ item.url | relative_url }}">{{ item.title }} <span>→</span></a>{% endfor %}</div>
+</section>

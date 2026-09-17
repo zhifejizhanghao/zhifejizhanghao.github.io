@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<section class="detail-hero card">
+  <span class="pill">纸飞机账号说明</span>
+  <h1>{{ page.title | default: '纸飞机账号购买教程' }}</h1>
+  <p>纸飞机（Telegram）账号购买是指通过正规渠道获取现成的 Telegram 成品号。本页整理购买流程、交付说明、注意事项与常见问题，购买与售后的官方渠道请认准商城。</p>
+  <div class="tag-row"><span>✓ 流程攻略</span><span>→ 商城直达购买</span></div>
+</section>
+<section class="card steps-card tutorial-card">
+  <div>
+    <span class="eyebrow">✓ 购买流程</span>
+    <h2>纸飞机账号<br>图文流程</h2>
+    <p>按以下步骤完成购买与验收，全程保留订单记录，账号到手立即做好安全设置。</p>
+  </div>
+  <div class="tutorial-body">
+    <ol>
+      <li><span>1</span><div><b>选择版本</b><p>在商城选择需要的账号类型：Telegram 成品号、Premium 会员号或批量批发。</p></div></li>
+      <li><span>2</span><div><b>提交订单</b><p>按页面提示提交订单，说明使用场景与数量，不需要提供你的账号密码。</p></div></li>
+      <li><span>3</span><div><b>完成支付</b><p>使用商城支持的支付方式付款，保留订单号以便核对交付。</p></div></li>
+      <li><span>4</span><div><b>验收账号</b><p>收到账号后立即登录：修改密码、绑定本人手机号、开启双重验证；有问题联系商城客服。</p></div></li>
+    </ol>
+  </div>
+</section>
+<section class="warn-panel">
+  <div class="warn-card danger">
+    <div class="warn-icon">!</div>
+    <div>
+      <h2>谨防超低价陷阱</h2>
+      <p>明显低于市场价的账号多为共享号、风险渠道或注册环境异常的号，容易封号或无法登录。请认准商城官方渠道，不贪低价。</p>
+    </div>
+  </div>
+  <div class="warn-card caution">
+    <div class="warn-icon">⚠</div>
+    <div>
+      <h2>账号安全提醒</h2>
+      <p>账号交付后第一时间绑定本人手机号并开启两步验证；不要把账号长期留在来路不明的设备上。</p>
+    </div>
+  </div>
+</section>
+<section class="card faq-card">
+  <div class="section-heading">
+    <span class="pill">常见问题</span>
+    <h2>纸飞机账号 FAQ</h2>
+    <p>围绕购买流程、交付与账号安全的常见疑问。</p>
+  </div>
+  <div class="faq-list">
+    <details open><summary>纸飞机账号买来多久能交付？ <span>→</span></summary><p>常规订单通常在付款后几分钟内交付账号信息；高峰时段或需要人工核对的订单可能稍慢，以商城客服确认为准。</p></details>
+    <details><summary>账号可以改密和换绑吗？ <span>→</span></summary><p>可以。交付后即可登录修改密码、绑定本人手机号与开启双重验证；具体以账号当前状态和商城售后说明为准。</p></details>
+    <details><summary>买来的账号会不会被封？ <span>→</span></summary><p>通过正规渠道获取、正常使用的账号风险较低；共享号、异常注册环境或违规使用才容易触发风控。请认准商城官方渠道。</p></details>
+    <details><summary>支持哪些支付方式？ <span>→</span></summary><p>具体支付方式以商城页面为准，请在下单页确认。</p></details>
+    <details><summary>购买出问题找谁处理？ <span>→</span></summary><p>通过商城下单的订单由商城客服处理售后；本站只提供信息攻略，不直接处理订单。</p></details>
+  </div>
+</section>
+{% assign kws = "纸飞机,telegram,账号,成品号,会员,批发" | split: "," %}{% assign related_count = 0 %}
+<section class="card latest-card">
+  <div class="section-heading">
+    <span class="pill">相关文章</span>
+    <h2>纸飞机账号相关文章</h2>
+    <p>底部聚合本站与纸飞机账号、Telegram成品号、会员相关的全部文章。</p>
+  </div>
+  <div class="latest-grid">
+    {% for post in site.posts %}{% assign hit = false %}{% assign title_l = post.title | downcase %}{% for k in kws %}{% if title_l contains k %}{% assign hit = true %}{% endif %}{% endfor %}{% if hit %}{% assign related_count = related_count | plus: 1 %}
+    <article><span class="latest-date">{{ post.date | date: "%Y-%m-%d" }}</span><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3></article>
+    {% endif %}{% endfor %}
+  </div>
+  <p class="related-count">共 {{ related_count }} 篇相关文章</p>
+</section>
