@@ -1,5 +1,5 @@
 ---
-layout: guide
+layout: pifa-landing
 permalink: /zhifeiji-pifa/
 badge: TG电报号批发
 title: TG账号购买哪里找？电报号/Telegram成品号批发低至几元

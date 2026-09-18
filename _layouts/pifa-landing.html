@@ -1,0 +1,107 @@
+---
+layout: default
+---
+<style>
+  body.pifa-page{background:#070d18;}
+</style>
+<link rel="stylesheet" href="{{ '/assets/css/pifa-landing.css' | relative_url }}">
+<div class="pifa-landing">
+  <script>document.body.classList.add('pifa-page');</script>
+
+  <section class="pif-hero">
+    <span class="pif-pill">⚡ {{ page.badge }}</span>
+    <h1 class="pif-h1">{{ page.title }}</h1>
+    <p class="pif-lead">{{ page.intro }}</p>
+    <div class="pif-ctas">
+      <button type="button" class="pif-btn solid" data-buy>→ 前往商城购买</button>
+      <a class="pif-btn ghost" href="#faq">查看常见问题</a>
+    </div>
+  </section>
+
+  <div class="pif-stats">
+    <div class="pif-stat"><b>¥6.8 起</b><span>Telegram 成品号</span></div>
+    <div class="pif-stat"><b>¥28.8 起</b><span>TG Premium 会员</span></div>
+    <div class="pif-stat"><b>按量报价</b><span>批量批发更优惠</span></div>
+    <div class="pif-stat"><b>官方售后</b><span>异常订单可处理</span></div>
+  </div>
+
+  {% if page.products %}
+  <section class="pif-sec">
+    <span class="pif-eyebrow">服务展示</span>
+    <h2>TG账号 / 电报号 / 成品号,按需选择</h2>
+    <p class="pif-sub">以下为纸飞机账号主要服务档位,价格仅供参考,以商城实际为准。</p>
+    <div class="pif-grid">
+      {% for item in page.products %}
+      <article class="pif-card">
+        {% if forloop.first %}<span class="pif-hot">热销</span>{% endif %}
+        <span class="tag">{{ item.country }}</span>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="pif-price">{{ item.price }} <small>/ 以商城为准</small></div>
+        <button type="button" class="pif-btn solid" data-buy>商城购买 →</button>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="pif-sec">
+    <span class="pif-eyebrow">购买前确认</span>
+    <h2>下单前,先看这几点</h2>
+    <p class="pif-sub">几个最容易出错的小细节,确认好再付款更省心。</p>
+    <div class="pif-cards">
+      {% for item in page.cards %}
+      <article class="pif-card pif-card--check">
+        <h4>0{{ forloop.index }} · {{ item.title }}</h4>
+        <p>{{ item.body }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="pif-sec">
+    <span class="pif-eyebrow">购买流程</span>
+    <h2>几步搞定,TG号到手</h2>
+    <ol class="pif-steps">
+      {% for item in page.steps %}<li><p>{{ item }}</p></li>{% endfor %}
+    </ol>
+  </section>
+
+  <div class="pif-safety">
+    <div class="box">
+      <span class="sym">✓</span>
+      <div>
+        <h4>账号安全提示</h4>
+        <p>任何情况下都不要向陌生人提供账号密码、验证码或付款资料。购买与售后请认准商城官方渠道 shop.xinkonyun.cc,收货后建议立即改密并绑定本人手机号。</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="pif-sec">
+    <span class="pif-eyebrow">常见问题</span>
+    <h2>关于购买,你可能想问</h2>
+    <div class="pif-faq" id="faq">
+      {% for item in page.faqs %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ item.question }}<span>→</span></summary>
+        <p>{{ item.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="pif-sec">
+    <span class="pif-eyebrow">继续阅读</span>
+    <h2>相关说明页面</h2>
+    <div class="pif-rel">
+      {% for item in page.related %}<a href="{{ item.url | relative_url }}">{{ item.title }} →</a>{% endfor %}
+      <a href="https://shop.xinkonyun.cc/" target="_blank" rel="noreferrer">前往商城购买 →</a>
+    </div>
+  </section>
+
+  <section class="pif-sec"><div class="pif-final">
+    <h3>现在就拿下你的 Telegram 账号</h3>
+    <p>成品号、会员、批发,一步直达商城。</p>
+    <button type="button" class="pif-btn solid" data-buy>→ 前往商城购买</button>
+  </div></section>
+</div>

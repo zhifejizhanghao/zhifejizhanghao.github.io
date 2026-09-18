@@ -1,0 +1,87 @@
+/* ===== 深色科技风 · 仅 zhifeiji-pifa 页 ===== */
+.pifa-landing{
+  --bg:#070d18; --bg2:#0c1526; --card:rgba(20,32,54,.6);
+  --line:rgba(56,132,255,.22); --blue:#2AABEE; --blue2:#229ED9;
+  --txt:#eaf3ff; --mut:#9db4d0; --acc:#3ddc97;
+}
+body.pifa-page{background:var(--bg); color:var(--txt);}
+body.pifa-page .site-header{background:rgba(7,13,24,.72); border-bottom:1px solid var(--line);}
+body.pifa-page .site-header .brand,.site-nav .mode-pill,
+body.pifa-page .site-header a{ color:var(--txt); }
+body.pifa-page .site-footer{background:var(--bg2); border-top:1px solid var(--line); color:var(--mut);}
+body.pifa-page .site-footer a{color:var(--blue);}
+/* hero */
+.pif-hero{position:relative; text-align:center; padding:64px 20px 46px; overflow:hidden;}
+.pif-hero::before{content:""; position:absolute; inset:-20% auto auto -10%; width:90%; height:110%;
+  background:radial-gradient(closest-side, rgba(42,171,238,.28), transparent 72%); pointer-events:none; z-index:0;}
+.pif-hero>*{position:relative; z-index:1;}
+.pif-pill{display:inline-flex; gap:8px; align-items:center; padding:6px 14px; border-radius:999px;
+  border:1px solid var(--line); background:rgba(42,171,238,.12); color:var(--blue); font-size:13px;}
+.pif-h1{font-size:clamp(26px,4.5vw,44px); font-weight:800; line-height:1.25; margin:18px auto 12px; max-width:820px;
+  background:linear-gradient(92deg,#6fd0ff,#2AABEE 55%,#7de8ff); -webkit-background-clip:text; background-clip:text; color:transparent; text-wrap:balance;}
+.pif-lead{max-width:640px; margin:0 auto 22px; color:var(--mut); font-size:16px; line-height:1.75;}
+.pif-ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.pif-btn{padding:13px 26px; border-radius:12px; font-weight:700; font-size:15px; text-decoration:none; cursor:pointer; border:0; transition:.18s;}
+.pif-btn.solid{background:linear-gradient(92deg,#2AABEE,#1f8ed8); color:#04121f;
+  box-shadow:0 6px 26px rgba(42,171,238,.42);}
+.pif-btn.solid:hover{transform:translateY(-2px); box-shadow:0 10px 34px rgba(42,171,238,.6);}
+.pif-btn.ghost{border:1px solid var(--line); color:var(--txt); background:transparent;}
+.pif-btn.ghost:hover{border-color:var(--blue); color:var(--blue);}
+/* stats */
+.pif-stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; max-width:860px;
+  margin:-8px auto 0; padding:0 20px; position:relative; z-index:1;}
+.pif-stat{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; text-align:center;}
+.pif-stat b{display:block; font-size:22px; color:var(--acc);}
+.pif-stat span{font-size:13px; color:var(--mut);}
+/* sections */
+.pif-sec{max-width:960px; margin:0 auto; padding:40px 20px;}
+.pif-eyebrow{color:var(--blue); font-size:13px; letter-spacing:.12em; font-weight:700; text-transform:uppercase; margin-bottom:8px; display:block;}
+.pif-sec h2{font-size:clamp(20px,3vw,28px); margin:0 0 8px;}
+.pif-sec>.pif-sub{color:var(--mut); margin:0 0 26px; max-width:640px; line-height:1.7;}
+/* products */
+.pif-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;}
+.pif-card{background:linear-gradient(170deg,var(--card),rgba(12,21,38,.9)); border:1px solid var(--line);
+  border-radius:16px; padding:22px; position:relative; transition:.2s; display:flex; flex-direction:column; gap:10px;}
+.pif-card:hover{transform:translateY(-4px); border-color:rgba(42,171,238,.55);
+  box-shadow:0 14px 40px rgba(42,171,238,.18);}
+.pif-card .tag{font-size:12px; color:var(--blue); border:1px solid var(--line); border-radius:999px; padding:3px 10px; width:fit-content; background:rgba(42,171,238,.1);}
+.pif-card h3{margin:0; font-size:18px;}
+.pif-card p{margin:0; color:var(--mut); font-size:14px; line-height:1.6; flex:1;}
+.pif-price{font-size:26px; font-weight:800; color:#7de8ff;}
+.pif-price small{font-size:13px; color:var(--mut); font-weight:500;}
+.pif-card .pif-btn{width:100%; margin-top:4px;}
+.pif-hot{position:absolute; top:-11px; right:14px; background:linear-gradient(92deg,#ff9a3d,#ff5e5e); color:#2b0a00;
+  font-size:12px; font-weight:800; padding:4px 10px; border-radius:999px; box-shadow:0 4px 14px rgba(255,120,60,.4);}
+/* steps timeline */
+.pif-steps{list-style:none; margin:0; padding:0; display:grid; gap:12px; counter-reset:st;}
+.pif-steps li{display:flex; gap:16px; background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:16px 18px; align-items:center;}
+.pif-steps li::before{counter-increment:st; content:counter(st); flex:0 0 38px; height:38px; border-radius:10px;
+  background:linear-gradient(140deg,rgba(42,171,238,.25),rgba(42,171,238,.1)); border:1px solid var(--line);
+  color:var(--blue); font-weight:800; font-size:17px; display:grid; place-items:center;}
+.pif-steps li p{margin:0; line-height:1.6;}
+/* checklist cards */
+.pif-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px;}
+.pif-card--check h4{margin:0 0 6px; font-size:16px;}
+.pif-card--check p{margin:0; color:var(--mut); font-size:14px; line-height:1.65;}
+/* safety */
+.pif-safety{max-width:960px; margin:0 auto; padding:8px 20px 40px;}
+.pif-safety .box{display:flex; gap:16px; border:1px dashed rgba(61,220,151,.4); background:rgba(61,220,151,.07);
+  border-radius:16px; padding:20px; align-items:flex-start;}
+.pif-safety .sym{width:40px; height:40px; flex:0 0 40px; border-radius:50%; display:grid; place-items:center;
+  background:rgba(61,220,151,.16); color:var(--acc); font-weight:900; font-size:20px;}
+.pif-safety h4{margin:0 0 6px;} .pif-safety p{margin:0; color:var(--mut); font-size:14px; line-height:1.7;}
+/* faq */
+.pif-faq details{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:10px;}
+.pif-faq summary{cursor:pointer; font-weight:700; display:flex; justify-content:space-between; gap:10px; align-items:center;}
+.pif-faq details p{margin:12px 0 0; color:var(--mut); line-height:1.7; font-size:14px;}
+/* related + final cta */
+.pif-rel{display:flex; flex-wrap:wrap; gap:12px;}
+.pif-rel a{border:1px solid var(--line); background:var(--card); color:var(--txt); text-decoration:none;
+  padding:12px 18px; border-radius:12px; transition:.18s;}
+.pif-rel a:hover{border-color:var(--blue); color:var(--blue);}
+.pif-final{margin-top:8px; text-align:center; background:linear-gradient(120deg,rgba(42,171,238,.14),rgba(61,220,151,.08));
+  border:1px solid var(--line); border-radius:20px; padding:38px 24px;}
+.pif-final h3{font-size:24px; margin:0 0 8px;}
+.pif-final p{color:var(--mut); margin:0 0 20px;}
+@media(max-width:640px){.pif-hero{padding:48px 16px 38px;}}
