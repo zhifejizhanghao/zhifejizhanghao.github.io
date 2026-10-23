@@ -4,7 +4,7 @@ category: 使用文章
 title: 中国手机号能注册Telegram吗？操作步骤和常见问题
 description: 中国手机号能注册Telegram吗？操作步骤和常见问题
 permalink: /articles/tg-zhongguo-shoujihao-zhuce/
-tags: []
+tags: ["tg注册", "telegram中国手机号", "国内注册telegram", "tg注册教程"]
 ---
 
 中国手机号是可以注册Telegram的。只要你的手机号能正常接收短信验证码，注册流程本身并不复杂。不过实际操作中，不少用户会遇到验证码迟迟不到、输入格式不对、地区选择错误等问题，导致注册卡在某一步。下面把整个流程和容易出问题的地方说清楚。
