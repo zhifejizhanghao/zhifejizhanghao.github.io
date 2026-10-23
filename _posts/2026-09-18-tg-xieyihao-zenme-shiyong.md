@@ -3,11 +3,9 @@ layout: post
 category: 使用文章
 title: tg协议号怎么使用：从获取到实际操作完整说明
 description: tg协议号怎么使用：从获取到实际操作完整说明
-tags: [
-permalink: /articles/2026/09/18/tg-xieyihao-zenme-shiyong/"tg协议号", "telegram协议号", "mtproto", "tg自动化工具"]
+permalink: /articles/tg-xieyihao-zenme-shiyong/
+tags: []
 ---
-
-# tg协议号怎么使用：从获取到实际操作完整说明
 
 在Telegram生态中，"协议号"是一个被频繁提及但理解门槛较高的概念。很多用户第一次接触时，会把它和普通账号混淆，或者不清楚它到底能做什么、怎么用。这篇文章会从协议号的基本概念出发，逐步说明它的获取方式、具体操作流程、常见使用场景，以及使用过程中需要关注的风险点。
 
