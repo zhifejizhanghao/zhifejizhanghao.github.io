@@ -4,6 +4,7 @@ category: 使用文章
 title: tg协议号怎么使用：从获取到实际操作完整说明
 description: tg协议号怎么使用：从获取到实际操作完整说明
 permalink: /articles/tg-xieyihao-zenme-shiyong/
+image: /assets/images/tg账号购买.webp
 tags: ["tg协议号", "telegram协议号", "mtproto", "tg自动化工具"]
 ---
 
