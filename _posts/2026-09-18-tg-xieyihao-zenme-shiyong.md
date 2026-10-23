@@ -3,7 +3,8 @@ layout: post
 category: 使用文章
 title: tg协议号怎么使用：从获取到实际操作完整说明
 description: tg协议号怎么使用：从获取到实际操作完整说明
-tags: ["tg协议号", "telegram协议号", "mtproto", "tg自动化工具"]
+tags: [
+permalink: /articles/2026/09/18/tg-xieyihao-zenme-shiyong/"tg协议号", "telegram协议号", "mtproto", "tg自动化工具"]
 ---
 
 # tg协议号怎么使用：从获取到实际操作完整说明
