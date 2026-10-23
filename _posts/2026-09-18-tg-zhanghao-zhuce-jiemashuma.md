@@ -4,6 +4,7 @@ category: 使用文章
 title: tg账号注册接码：手机号收不到验证码怎么办
 description: tg账号注册接码：手机号收不到验证码怎么办
 permalink: /articles/tg-zhanghao-zhuce-jiemashuma/
+image: /assets/images/纸飞机账号注册.webp
 tags: ["tg注册", "telegram注册", "tg接码", "telegram接码平台"]
 ---
 
