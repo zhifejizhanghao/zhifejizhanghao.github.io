@@ -4,6 +4,7 @@ category: 使用文章
 title: 中国手机号能注册Telegram吗？操作步骤和常见问题
 description: 中国手机号能注册Telegram吗？操作步骤和常见问题
 permalink: /articles/tg-zhongguo-shoujihao-zhuce/
+image: /assets/images/telegram成品.webp
 tags: ["tg注册", "telegram中国手机号", "国内注册telegram", "tg注册教程"]
 ---
 
