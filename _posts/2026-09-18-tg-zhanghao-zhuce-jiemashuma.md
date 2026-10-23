@@ -3,11 +3,9 @@ layout: post
 category: 使用文章
 title: tg账号注册接码：手机号收不到验证码怎么办
 description: tg账号注册接码：手机号收不到验证码怎么办
-tags: [
-permalink: /articles/2026/09/18/tg-zhanghao-zhuce-jiemashuma/"tg注册", "telegram注册", "tg接码", "telegram接码平台"]
+permalink: /articles/tg-zhanghao-zhuce-jiemashuma/
+tags: []
 ---
-
-# tg账号注册接码：手机号收不到验证码怎么办
 
 注册 Telegram 账号时，很多人会卡在最后一步——手机验证码。尤其是使用境外号码或者接码平台时，验证码迟迟不到、号码提示已被注册、或者验证页面一直转圈，这些情况非常常见。
 
