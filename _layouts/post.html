@@ -39,5 +39,21 @@ layout: default
       <div class="side-tags">{% for t in page.tags %}<span>{{ t }}</span>{% endfor %}</div>
     </div>
     {% endif %}
+    <div class="side-card">
+      <div class="side-head">
+        <span class="pill">最新文章</span>
+        <h2>最新更新</h2>
+      </div>
+      <div class="side-articles">
+        {% for post in site.posts limit:6 %}
+        {% unless post.url == page.url %}
+        <a class="side-article" href="{{ post.url | relative_url }}">
+          <span class="side-article-date">{{ post.date | date: "%m-%d" }}</span>
+          <b>{{ post.title | truncate: 28 }}</b>
+        </a>
+        {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
   </aside>
 </div>
