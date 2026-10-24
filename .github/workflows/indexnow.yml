@@ -17,7 +17,7 @@ jobs:
 
       - name: Submit URLs to IndexNow
         env:
-          INDEXNOW_KEY: 0f34cdc0e1cd8836856365fa15d6749d
+          INDEXNOW_KEY: 4a38f28dc5714ebea70c452cdd7003d6
           BASE_URL: https://zhifejizhanghao.github.io
         run: |
           echo "Collecting article URLs from sitemap.xml..."
