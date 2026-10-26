@@ -13,46 +13,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
+
+      - name: Build URL list
+        id: urls
+        env:
+          BASE_URL: https://zhifejizhanghao.github.io
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: python3 build_urls.py
 
       - name: Submit URLs to IndexNow
+        if: steps.urls.outputs.urls != '0'
         env:
           INDEXNOW_KEY: 4a38f28dc5714ebea70c452cdd7003d6
           BASE_URL: https://zhifejizhanghao.github.io
         run: |
-          echo "Collecting article URLs from sitemap.xml..."
-
-          # Fetch sitemap and extract article URLs
-          URLs=$(curl -s "$BASE_URL/sitemap.xml" | grep -oP 'https://[^<]+' | grep '/articles/' | head -50)
-
-          if [ -z "$URLS" ]; then
-            echo "No article URLs found. Exiting."
+          URL_COUNT=$(python3 -c "import json; print(len(json.load(open('/tmp/url_list.json'))))")
+          if [ "$URL_COUNT" -eq 0 ]; then
+            echo "No URLs to submit."
             exit 0
           fi
-
-          URL_COUNT=$(echo "$URLS" | wc -l)
-          echo "Found $URL_COUNT URLs"
-
-          # Build JSON payload
-          URLS_JSON=$(echo "$URLS" | python3 -c "
-          import sys, json
-          urls = [line.strip() for line in sys.stdin if line.strip()]
-          print(json.dumps(urls))
-          ")
-
-          PAYLOAD=$(cat <<EOF
-          {
-            "host": "zhifejizhanghao.github.io",
-            "key": "$INDEXNOW_KEY",
-            "keyLocation": "$BASE_URL/$INDEXNOW_KEY.txt",
-            "urlList": $URLS_JSON
-          }
-          EOF
-          )
-
-          echo "Submitting $URL_COUNT URLs to Bing IndexNow..."
-          curl -s -X POST             -H "Content-Type: application/json; charset=utf-8"             -d "$PAYLOAD"             "https://api.indexnow.org/indexnow"
-
-          echo ""
-          echo "IndexNow submission complete."
-
+          echo "Submitting $URL_COUNT URLs..."
+          python3 submit_indexnow.py
