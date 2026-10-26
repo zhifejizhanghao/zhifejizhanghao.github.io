@@ -1,70 +1,98 @@
+"""Collect IndexNow URLs for posts published today only.
 
+Rule (per user): only submit articles whose publish date is TODAY.
+- On push: look at _posts/*.md changed in the last commit, keep those whose
+  filename date prefix (YYYY-MM-DD-) equals today's date (Asia/Shanghai).
+- On workflow_dispatch: same filter applied to all tracked _posts files.
+Historical posts, edited old posts, and full-sitemap dumps are never submitted.
+"""
+
+import json
 import os
 import re
 import subprocess
-import json
-import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
-def build_urls():
-    base = os.environ.get("BASE_URL", "https://zhifejizhanghao.github.io")
-    
-    # 1. Get changed _posts/*.md from last commit (or all if workflow_dispatch)
+BASE_URL = os.environ.get("BASE_URL", "https://zhifejizhanghao.github.io")
+CST = timezone(timedelta(hours=8))
+
+
+def today_str() -> str:
+    return datetime.now(CST).strftime("%Y-%m-%d")
+
+
+def list_changed_posts() -> list:
     event = os.environ.get("GITHUB_EVENT_NAME", "push")
-    files = []
     if event == "workflow_dispatch":
-        try:
-            result = subprocess.run(["git", "ls-files", "_posts/*.md"], capture_output=True, text=True, check=True)
-            files = [f for f in result.stdout.strip().split("\n") if f]
-        except subprocess.CalledProcessError as e:
-            print("Error listing files:", e)
-            return []
+        cmd = ["git", "ls-files", "_posts/*.md"]
     else:
-        try:
-            result = subprocess.run(["git", "diff", "--name-only", "--diff-filter=AM", "HEAD^", "HEAD", "--", "_posts/*.md"], capture_output=True, text=True, check=True)
-            files = [f for f in result.stdout.strip().split("\n") if f]
-        except subprocess.CalledProcessError as e:
-            print("Error diffing files:", e)
-            return []
+        cmd = [
+            "git", "diff", "--name-only", "--diff-filter=AM",
+            "HEAD^", "HEAD", "--", "_posts/*.md",
+        ]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    except subprocess.CalledProcessError as e:
+        print("git command failed:", e)
+        return []
+    return [f for f in result.stdout.strip().split("\n") if f]
+
+
+def post_date_of(path: str):
+    """Return YYYY-MM-DD for a post: front-matter date first, filename prefix as fallback."""
+    name = os.path.basename(path)
+    m = re.match(r"(\d{4}-\d{2}-\d{2})-", name)
+    if m:
+        return m.group(1)
+    try:
+        with open(path, encoding="utf-8") as fh:
+            head = fh.read(2000)
+    except OSError:
+        return None
+    m = re.search(r"^date:\s*['\"]?(\d{4}-\d{2}-\d{2})", head, re.M)
+    return m.group(1) if m else None
+
+
+def url_of(path: str) -> str:
+    try:
+        with open(path, encoding="utf-8") as fh:
+            text = fh.read()
+    except OSError:
+        return ""
+    m = re.search(r"permalink:\s*(\S+)", text)
+    if m:
+        perm = m.group(1).strip().strip("'\"")
+        return BASE_URL + perm if perm.startswith("/") else BASE_URL + "/" + perm
+    slug = os.path.basename(path)[:-3]
+    slug = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", slug)
+    return f"{BASE_URL}/articles/{slug}/"
+
+
+def main() -> None:
+    today = today_str()
+    print(f"Today (Asia/Shanghai): {today}")
+
+    files = list_changed_posts()
+    print(f"Changed post files: {len(files)}")
 
     urls = []
     for f in files:
-        if not os.path.isfile(f):
+        if not f or not os.path.isfile(f):
             continue
-        try:
-            with open(f, encoding="utf-8") as text:
-                text_content = text.read()
-                m = re.search(r"permalink:\s*(\S+)", text_content)
-                if m:
-                    url = base + m.group(1)
-                else:
-                    slug = os.path.basename(f).replace(".md", "")
-                    slug = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", slug)
-                    url = base + "/articles/" + slug + "/"
-                
-                if url not in urls:
-                    urls.append(url)
-                    print("Post add:", url)
-        except Exception as e:
-            print(f"Error processing {f}: {e}")
-            
-    # 2. Sitemap fallback (live)
-    try:
-        with urllib.request.urlopen(base + "/sitemap.xml", timeout=15) as resp:
-            sitemap = resp.read().decode("utf-8")
-        for match in re.findall(r"https://[^<]+", sitemap):
-            if "/articles/" in match and match not in urls:
-                urls.append(match)
-                print("Sitemap add:", match)
-    except Exception as e:
-        print("Sitemap fetch failed:", e)
+        d = post_date_of(f)
+        if d != today:
+            print(f"SKIP (date {d} != {today}): {f}")
+            continue
+        u = url_of(f)
+        if u and u not in urls:
+            urls.append(u)
+            print(f"ADD: {u}")
 
-    # 3. Cap and return
     urls = urls[:50]
-    return urls
+    with open("/tmp/url_list.json", "w", encoding="utf-8") as out:
+        json.dump(urls, out)
+    print(f"TODAY_URL_COUNT={len(urls)}")
+
 
 if __name__ == "__main__":
-    url_list = build_urls()
-    with open("/tmp/url_list.json", "w") as out:
-        json.dump(url_list, out)
-    print(f"Total unique URLs: {len(url_list)}")
+    main()
