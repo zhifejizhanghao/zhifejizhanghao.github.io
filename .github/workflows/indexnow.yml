@@ -20,10 +20,13 @@ jobs:
         env:
           BASE_URL: https://zhifejizhanghao.github.io
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-        run: python3 build_urls.py
+        run: |
+          python3 build_urls.py
+          URL_COUNT=$(python3 -c "import json; print(len(json.load(open('/tmp/url_list.json'))))")
+          echo "urls=$URL_COUNT" >> "$GITHUB_OUTPUT"
+          echo "$URL_COUNT URLs ready"
 
       - name: Submit URLs to IndexNow
-        if: steps.urls.outputs.urls != '0'
         env:
           INDEXNOW_KEY: 4a38f28dc5714ebea70c452cdd7003d6
           BASE_URL: https://zhifejizhanghao.github.io
