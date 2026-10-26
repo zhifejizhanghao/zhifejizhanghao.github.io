@@ -4,6 +4,7 @@ category: 使用文章
 title: 电报付费登录遇到验证码或登录异常该怎么办
 description: 电报付费登录遇到验证码或登录异常该怎么办
 permalink: /articles/dianbaofufeidengluyudaoyanzhengmahuodengluyichangg/
+image: /assets/images/飞机电报账号购买.webp
 tags: ["telegram","注册","账号"]
 ---
 

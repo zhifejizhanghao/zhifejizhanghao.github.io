@@ -4,6 +4,7 @@ category: 使用文章
 title: 电报登陆付费是真的吗？登录 Telegram 的钱一般花在哪
 description: 电报登陆付费是真的吗？登录 Telegram 的钱一般花在哪
 permalink: /articles/dianbaodenglufufeishizhendema-denglu-elegram-deqia/
+image: /assets/images/电报账号购买平台.webp
 tags: ["telegram","注册","账号"]
 ---
 

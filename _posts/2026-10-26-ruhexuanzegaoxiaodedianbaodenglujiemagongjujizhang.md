@@ -4,6 +4,7 @@ category: 使用文章
 title: 如何选择高效的电报登录接码工具及账号防技巧
 description: 如何选择高效的电报登录接码工具及账号防技巧
 permalink: /articles/ruhexuanzegaoxiaodedianbaodenglujiemagongjujizhang/
+image: /assets/images/纸飞机号购买平台.webp
 tags: ["telegram","注册","账号"]
 ---
 

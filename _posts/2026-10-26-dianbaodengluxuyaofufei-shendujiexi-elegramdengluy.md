@@ -4,6 +4,7 @@ category: 使用文章
 title: 电报登录需要付费？深度解析Telegram登录异常及常见费用陷阱
 description: 电报登录需要付费？深度解析Telegram登录异常及常见费用陷阱
 permalink: /articles/dianbaodengluxuyaofufei-shendujiexi-elegramdengluy/
+image: /assets/images/电报账号购买.webp
 tags: ["telegram","注册","账号"]
 ---
 

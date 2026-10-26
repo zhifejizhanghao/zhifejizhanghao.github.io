@@ -4,6 +4,7 @@ category: 使用文章
 title: 电报登录入口怎么找？常见登录异常及收验证码解决方法
 description: 电报登录入口怎么找？常见登录异常及收验证码解决方法
 permalink: /articles/dianbaodenglurukouzenmezhao-changjiandengluyichang/
+image: /assets/images/电报账号购买平台.webp
 tags: ["telegram","注册","账号"]
 ---
 

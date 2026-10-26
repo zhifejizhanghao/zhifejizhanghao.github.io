@@ -4,6 +4,7 @@ category: 使用文章
 title: 电报登入收费吗？深度解析登录过程中的费用疑问
 description: 电报登入收费吗？深度解析登录过程中的费用疑问
 permalink: /articles/dianbaodengrushoufeima-shendujiexidengluguochengzh/
+image: /assets/images/纸飞机号购买平台.webp
 tags: ["telegram","注册","账号"]
 ---
 

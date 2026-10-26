@@ -4,6 +4,7 @@ category: 使用文章
 title: 电报忘记二级密码怎么办？找回与重置的解决方法
 description: 电报忘记二级密码怎么办？找回与重置的解决方法
 permalink: /articles/dianbaowangjierjimimazenmeban-zhaohuiyuzhongzhidej/
+image: /assets/images/纸飞机账号注册.webp
 tags: ["telegram","注册","账号"]
 ---
 
