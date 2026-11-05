@@ -28,3 +28,25 @@
     });
   });
 })();
+
+// === 弹窗（从 applezhanghao.github.io 移植）===
+(function () {
+  const popupOverlay = document.getElementById('popupOverlay');
+  if (!popupOverlay) return;
+
+  // 页面解析完后先渲染网页，再延迟弹出
+  window.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      popupOverlay.classList.add('show');
+    }, 300);
+  });
+
+  // 点击遮罩层不关闭（强制引导），如需点击遮罩关闭可取消下面注释
+  /*
+  popupOverlay.addEventListener('click', function (e) {
+    if (e.target === popupOverlay) {
+      popupOverlay.classList.remove('show');
+    }
+  });
+  */
+})();
