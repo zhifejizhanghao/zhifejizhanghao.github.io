@@ -1,3 +1,10 @@
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+Allow: /favicon.ico
+Allow: /icon-32.png
+Allow: /icon-192.png
+Allow: /icon-512.png
+Allow: /apple-touch-icon.png
+Allow: /site.webmanifest
+Allow: /assets/images/favicon.svg
+Sitemap: https://zhifejizhanghao.github.io/sitemap.xml
